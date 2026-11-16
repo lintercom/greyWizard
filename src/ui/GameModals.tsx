@@ -683,6 +683,7 @@ export function GameModals() {
                   <p className="text-xs text-slate-300">
                     Body poznání získáváš za dokončení kapitol, vedlejších úkolů a porážku velitelů.
                   </p>
+                  <p className="text-xs text-slate-400">Hodnoty níže popisují Gandalfovu povahu; samy o sobě zatím nemění herní výpočty.</p>
                 </div>
                 <div className="px-3.5 py-1.5 rounded bg-[#271f13] border border-[#e3be76]/50 text-xs font-semibold text-[#f3dca6]">
                   Body poznání: <span className="font-mono-num text-sm">{knowledgePoints}</span>

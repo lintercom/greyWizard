@@ -1,5 +1,7 @@
 import { useEffect, useMemo, useRef } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
+import { WorldAsset, WorldKit } from './WorldKit';
+import { useGLTF } from '@react-three/drei';
 import { CuboidCollider, CylinderCollider, RigidBody } from '@react-three/rapier';
 import * as THREE from 'three';
 import { RoomEnvironment } from 'three/examples/jsm/environments/RoomEnvironment.js';
@@ -12,12 +14,14 @@ import {
   RANGER_POS,
   SPAWN_POS,
   VILLAGE_POS,
+  VILLAGE_WELL_POS,
   WATCHTOWER_POS,
   WATERFALL_POS,
   distanceToRoad,
   groundHeightAt,
   riverCenterZ,
   surfaceSlopeAt,
+  terrainColorAt,
 } from '../game/terrain';
 import {
   COTTAGE_SPECS,
@@ -162,7 +166,7 @@ export function EnvironmentLighting({ isSoftwareGl }: { isSoftwareGl: boolean })
     scene.environment = envTex;
     scene.environmentIntensity = 0.36;
     scene.background = new THREE.Color('#9cb0be');
-    scene.fog = new THREE.FogExp2('#9cb0be', 0.0072);
+    scene.fog = new THREE.FogExp2('#9bafb0', 0.0062);
     return () => {
       scene.environment = null;
       envTex.dispose();
@@ -191,7 +195,7 @@ export function EnvironmentLighting({ isSoftwareGl }: { isSoftwareGl: boolean })
       <directionalLight
         ref={dirLightRef}
         color="#ffdfb3"
-        intensity={2.2}
+        intensity={1.8}
         position={[44, 34, 24]}
         castShadow={!isSoftwareGl}
         shadow-mapSize-width={shadowMapSize}
@@ -213,7 +217,7 @@ export function EnvironmentLighting({ isSoftwareGl }: { isSoftwareGl: boolean })
 function TerrainMesh() {
   const terrainGeo = useMemo(() => {
     const size = 216;
-    const segs = 112;
+    const segs = 160;
     const geo = new THREE.PlaneGeometry(size, size, segs, segs);
     geo.rotateX(-Math.PI / 2);
 
@@ -235,44 +239,8 @@ function TerrainMesh() {
       const y = groundHeightAt(x, z);
       pos.setY(i, y);
 
-      const roadDist = distanceToRoad(x, z);
-      const rz = riverCenterZ(x);
-      const distRiver = Math.abs(z - rz);
-      const slope = surfaceSlopeAt(x, z);
-
-      // Stylized low-poly meadow & forest floor gradients
-      const sunPatch = 0.5 + 0.5 * Math.sin(x * 0.08 + z * 0.07);
-      tmp.copy(cMeadow).lerp(cSunGrass, sunPatch * 0.58);
-
-      const forestT = Math.max(0, Math.min(1, (-z + 5) / 38));
-      tmp.lerp(cForest, forestT * 0.55);
-
-      if (distRiver < 5.2 && x > -46 && x < 54 && Math.abs(x - FORD_POS.x) > 4.2) {
-        const bankT = Math.max(0, 1 - distRiver / 5.2);
-        tmp.lerp(cSand, bankT * 0.85);
-      }
-
-      if (roadDist < 4.4) {
-        const edgeT = Math.max(0, 1 - roadDist / 4.4);
-        tmp.lerp(cRoadEdge, edgeT * 0.68);
-      }
-      if (roadDist < 2.95) {
-        const roadT = Math.max(0, 1 - roadDist / 2.95);
-        tmp.lerp(cRoad, roadT * 0.94);
-      }
-
-      // Reveal grey rock on steep cliffs OR high altitude
-      const slopeRock = Math.max(0, Math.min(1, (slope - 0.55) * 1.4));
-      const heightRock = y > 5.2 ? Math.min(1, (y - 5.2) / 4.4) : 0;
-      const rockT = Math.max(slopeRock * 0.85, heightRock * 0.9);
-      if (rockT > 0) {
-        tmp.lerp(cRock, rockT);
-      }
-
-      if (y > 13.6) {
-        const snowT = Math.min(1, (y - 13.6) / 6.2);
-        tmp.lerp(cSnow, snowT * 0.88);
-      }
+      const color = terrainColorAt(x, z);
+      tmp.setRGB(...color);
 
       colors[i * 3] = tmp.r;
       colors[i * 3 + 1] = tmp.g;
@@ -1333,83 +1301,7 @@ function LandmarksAndArchitecture() {
             rotation={[0, c.rot, 0]}
           >
             <CuboidCollider args={[2.18, 1.7, 2.58]} position={[0, 1.7, 0]} />
-            {/* Stone Foundation Plinth + Threshold Step */}
-            <mesh position={[0, 0.35, 0]} castShadow receiveShadow>
-              <boxGeometry args={[4.2, 0.7, 5.0]} />
-              <meshStandardMaterial color="#666e75" roughness={0.92} flatShading />
-            </mesh>
-            <mesh position={[0, 0.14, 2.65]} castShadow receiveShadow>
-              <boxGeometry args={[1.35, 0.28, 0.45]} />
-              <meshStandardMaterial color="#757d84" roughness={0.92} flatShading />
-            </mesh>
-
-            {/* Plaster-and-Timber Cabin Walls */}
-            <mesh position={[0, 1.4, 0]} castShadow receiveShadow>
-              <boxGeometry args={[3.9, 1.55, 4.65]} />
-              <meshStandardMaterial color="#9c8a74" roughness={0.92} flatShading />
-            </mesh>
-
-            {/* Recessed Heavy Oak Door */}
-            <mesh position={[-0.78, 1.18, 2.34]}>
-              <boxGeometry args={[0.82, 1.32, 0.08]} />
-              <meshStandardMaterial color="#4d3522" roughness={0.88} flatShading />
-            </mesh>
-
-            {/* Warm Glowing Paned Window + Shutters */}
-            <mesh position={[0.72, 1.46, 2.36]}>
-              <boxGeometry args={[0.72, 0.56, 0.1]} />
-              <meshStandardMaterial color="#fbbf24" emissive="#f59e0b" emissiveIntensity={1.15} />
-            </mesh>
-            <mesh position={[0.28, 1.46, 2.36]}>
-              <boxGeometry args={[0.16, 0.62, 0.08]} />
-              <meshStandardMaterial color="#463120" roughness={0.9} flatShading />
-            </mesh>
-            <mesh position={[1.16, 1.46, 2.36]}>
-              <boxGeometry args={[0.16, 0.62, 0.08]} />
-              <meshStandardMaterial color="#463120" roughness={0.9} flatShading />
-            </mesh>
-
-            {/* Heavy Corner & Wall Timber Framing Posts */}
-            {[
-              [-1.98, 2.25],
-              [1.98, 2.25],
-              [-1.98, -2.25],
-              [1.98, -2.25],
-            ].map(([px, pz], pid) => (
-              <mesh key={pid} position={[px, 1.45, pz]} castShadow>
-                <boxGeometry args={[0.28, 1.75, 0.28]} />
-                <meshStandardMaterial color="#4b3624" roughness={0.92} flatShading />
-              </mesh>
-            ))}
-            <mesh position={[0, 2.12, 2.35]}>
-              <boxGeometry args={[4.1, 0.16, 0.18]} />
-              <meshStandardMaterial color="#4b3624" roughness={0.92} flatShading />
-            </mesh>
-
-            {/* Tapered Stone Hearth Chimney */}
-            <mesh position={[-1.42, 2.25, -1.95]} castShadow>
-              <cylinderGeometry args={[0.38, 0.56, 3.4, 4]} />
-              <meshStandardMaterial color="#586068" roughness={0.92} flatShading />
-            </mesh>
-
-            {/* Gabled Overhanging Low-Poly Roof + Ridge Beam */}
-            <mesh position={[0, 3.22, 0]} castShadow>
-              <boxGeometry args={[0.24, 0.24, 5.45]} />
-              <meshStandardMaterial color="#463222" roughness={0.92} flatShading />
-            </mesh>
-            <mesh position={[-1.02, 2.66, 0]} rotation={[0, 0, 0.55]} castShadow receiveShadow>
-              <boxGeometry args={[2.68, 0.16, 5.4]} />
-              <meshStandardMaterial color={c.roofColor} roughness={0.92} flatShading />
-            </mesh>
-            <mesh position={[1.02, 2.66, 0]} rotation={[0, 0, -0.55]} castShadow receiveShadow>
-              <boxGeometry args={[2.68, 0.16, 5.4]} />
-              <meshStandardMaterial color={c.roofColor} roughness={0.92} flatShading />
-            </mesh>
-            {/* Gable triangles */}
-            <mesh position={[0, 2.62, 2.28]} rotation={[0, Math.PI / 4, 0]}>
-              <cylinderGeometry args={[0.02, 1.9, 0.95, 4]} />
-              <meshStandardMaterial color="#8b7a66" roughness={0.92} flatShading />
-            </mesh>
+            <WorldAsset asset="cottage" />
           </RigidBody>
         ))}
 
@@ -1998,6 +1890,17 @@ function InteractiveWorldObjects() {
   );
 }
 
+function VillageWell() {
+  const { scene } = useGLTF(`${import.meta.env.BASE_URL}assets/world/liska_well.glb`);
+  return (
+    <RigidBody type="fixed" colliders={false} collisionGroups={RAPIER_GROUPS.STATIC_WORLD}
+      position={[VILLAGE_WELL_POS.x, groundHeightAt(VILLAGE_WELL_POS.x, VILLAGE_WELL_POS.z), VILLAGE_WELL_POS.z]}>
+      <CylinderCollider args={[1.2, 0.96]} position={[0, 1.2, 0]} />
+      <primitive object={scene} />
+    </RigidBody>
+  );
+}
+
 export function MiddleEarthWorld({ isSoftwareGl }: { isSoftwareGl: boolean }) {
   return (
     <>
@@ -2008,6 +1911,8 @@ export function MiddleEarthWorld({ isSoftwareGl }: { isSoftwareGl: boolean }) {
       <InstancedForestAndRocks />
       <StoryNpcsAndCamp />
       <LandmarksAndArchitecture />
+      <VillageWell />
+      <WorldKit />
       <InteractiveWorldObjects />
     </>
   );

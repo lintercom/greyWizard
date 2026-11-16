@@ -21,6 +21,7 @@ export const RANGER_POS = { x: 4, z: 36 };
 export const PATROL_POS = { x: -10, z: 16 };
 export const FORD_POS = { x: -14, z: 4 };
 export const VILLAGE_POS = { x: 26, z: 14 };
+export const VILLAGE_WELL_POS = { x: VILLAGE_POS.x, z: VILLAGE_POS.z + 8 };
 export const CAMPSITE_POS = { x: -22, z: -14 };
 export const CAVE_POS = { x: 32, z: -26 };
 export const WATCHTOWER_POS = { x: -6, z: -50 };
@@ -40,6 +41,14 @@ export const ROAD_WAYPOINTS: Vec2[] = [
   { x: -12, z: -36 },
   { x: -6, z: -50 },
 ];
+
+// The same paths grade the terrain, clear vegetation and draw the world map.
+export const BRANCH_PATHS: Vec2[][] = [
+  [{x:-2,z:24},{x:12,z:29},{x:25,z:28},{x:29,z:24},{x:29,z:18},VILLAGE_POS],
+  [FORD_POS,{x:-14,z:-7},{x:0,z:-17},{x:17,z:-18},{x:29,z:-17},{x:32,z:-21},CAVE_POS],
+  [CAMPSITE_POS,{x:-18,z:-20},{x:-20,z:-27},QUARRY_POS],
+];
+export const WORLD_PATHS = [ROAD_WAYPOINTS, ...BRANCH_PATHS];
 
 export const LANDMARKS: LandmarkDef[] = [
   {
@@ -121,7 +130,9 @@ export function lerp(a: number, b: number, t: number): number {
 }
 
 export function riverCenterZ(x: number): number {
-  return 4 + Math.sin(x * 0.055) * 4.2 + Math.cos(x * 0.025) * 1.5;
+  // Bend the stream around Líska while leaving the western ford unchanged.
+  const villageBend = 15 * Math.exp(-Math.pow((x - VILLAGE_POS.x) / 15, 4));
+  return 4 + Math.sin(x * 0.055) * 4.2 + Math.cos(x * 0.025) * 1.5 - villageBend;
 }
 
 function distToSegmentSq(px: number, pz: number, ax: number, az: number, bx: number, bz: number): number {
@@ -140,10 +151,18 @@ function distToSegmentSq(px: number, pz: number, ax: number, az: number, bx: num
 }
 
 export function distanceToRoad(x: number, z: number): number {
+  return distanceToPaths(x, z, WORLD_PATHS);
+}
+
+export function distanceToMainRoad(x: number, z: number): number {
+  return distanceToPaths(x, z, [ROAD_WAYPOINTS]);
+}
+
+function distanceToPaths(x: number, z: number, paths: Vec2[][]): number {
   let minSq = Infinity;
-  for (let i = 0; i < ROAD_WAYPOINTS.length - 1; i++) {
-    const a = ROAD_WAYPOINTS[i];
-    const b = ROAD_WAYPOINTS[i + 1];
+  for (const path of paths) for (let i = 0; i < path.length - 1; i++) {
+    const a = path[i];
+    const b = path[i + 1];
     const dSq = distToSegmentSq(x, z, a.x, a.z, b.x, b.z);
     if (dSq < minSq) minSq = dSq;
   }
@@ -180,8 +199,8 @@ export function groundHeightAt(x: number, z: number): number {
   h = lerp(h, 0.95, patrolFlat * 0.65);
 
   const distVillage = Math.hypot(x - VILLAGE_POS.x, z - VILLAGE_POS.z);
-  const villageFlat = 1 - smoothstep(7, 17, distVillage);
-  h = lerp(h, 1.2, villageFlat * 0.75);
+  const villageFlat = 1 - smoothstep(16, 23, distVillage);
+  h = lerp(h, 1.2, villageFlat);
 
   const distCamp = Math.hypot(x - CAMPSITE_POS.x, z - CAMPSITE_POS.z);
   const campFlat = 1 - smoothstep(5, 13, distCamp);
@@ -189,13 +208,13 @@ export function groundHeightAt(x: number, z: number): number {
 
   // Ancient Watchtower plateau at (-6, -50)
   const distTower = Math.hypot(x - WATCHTOWER_POS.x, z - WATCHTOWER_POS.z);
-  const towerPlateau = 1 - smoothstep(10.5, 22, distTower);
+  const towerPlateau = 1 - smoothstep(16, 27, distTower);
   h = lerp(h, 7.6, towerPlateau);
 
   // Smooth ramp along the road leading up to the Watchtower
   const roadDist = distanceToRoad(x, z);
   const onRoad = 1 - smoothstep(2.4, 6.2, roadDist);
-  if (z < -18 && z > -48 && roadDist < 6.5) {
+  if (z < -18 && z > -48 && distanceToMainRoad(x, z) < 6.5) {
     const rampT = smoothstep(-18, -44, z);
     const rampHeight = lerp(2.2, 7.6, rampT);
     h = lerp(h, rampHeight, onRoad * 0.9);
@@ -221,6 +240,12 @@ export function groundHeightAt(x: number, z: number): number {
     h += smoothstep(38, 54, x) * 6.5;
   }
 
+  // Quarry basin and eastern mine forecourt form readable destination spaces.
+  const quarryFlat = 1 - smoothstep(6, 14, Math.hypot(x - QUARRY_POS.x, z - QUARRY_POS.z));
+  h = lerp(h, 3.8, quarryFlat);
+  const mineApron = 1 - smoothstep(7, 14, Math.hypot(x - CAVE_POS.x, z - (CAVE_POS.z + 2)));
+  h = lerp(h, 2.35, mineApron);
+
   // Carve river channel across the valley (with a shallow ford at x = -14)
   const rz = riverCenterZ(x);
   const distRiver = Math.abs(z - rz);
@@ -240,6 +265,30 @@ export function groundHeightAt(x: number, z: number): number {
   }
 
   return h;
+}
+
+/** Shared art direction for runtime terrain and the editable Blender scene. */
+export function terrainColorAt(x: number, z: number): [number, number, number] {
+  const y = groundHeightAt(x,z);
+  const north = smoothstep(10,-45,z);
+  const variation = Math.sin(x*.21+z*.13)*.018;
+  let c: [number,number,number] = [lerp(.19,.13,north)+variation,lerp(.29,.22,north)+variation,lerp(.075,.12,north)];
+  const mix = (b: number[], t: number) => { c = c.map((a,i)=>lerp(a,b[i],clamp(t,0,1))) as typeof c; };
+  const river = Math.abs(z-riverCenterZ(x));
+  if (river < 6 && x>-46 && x<55) mix([.27,.25,.17],1-river/6);
+  const road = distanceToRoad(x,z);
+  if (road<3.5) mix([.33,.24,.14],1-smoothstep(1.3,3.5,road));
+  const village = Math.hypot(x-VILLAGE_POS.x,z-VILLAGE_POS.z);
+  if (village<9) mix([.32,.28,.19],(1-smoothstep(4,9,village))*.85);
+  const camp = Math.hypot(x-CAMPSITE_POS.x,z-CAMPSITE_POS.z);
+  if (camp<8) mix([.16,.13,.10],1-smoothstep(3,8,camp));
+  const quarry = Math.hypot(x-QUARRY_POS.x,z-QUARRY_POS.z);
+  if (quarry<10) mix([.31,.30,.27],1-smoothstep(4,10,quarry));
+  const mine = Math.hypot(x-CAVE_POS.x,z-CAVE_POS.z);
+  if (mine<9) mix([.25,.28,.29],1-smoothstep(3,9,mine));
+  mix([.24,.28,.30],Math.max(smoothstep(4.8,9,y),smoothstep(.6,1.5,surfaceSlopeAt(x,z)))*.8);
+  if(y>14) mix([.7,.77,.8],smoothstep(14,22,y));
+  return c;
 }
 
 export function isWaterAt(x: number, z: number): boolean {

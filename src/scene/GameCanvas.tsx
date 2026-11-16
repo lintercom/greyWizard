@@ -60,11 +60,11 @@ export function GameCanvas() {
       data-testid="game-canvas-container"
       className="fixed inset-0 w-full h-full bg-[#1a2229]"
     >
-      {contextLost ? (
-        <div className="w-full h-full flex items-center justify-center text-[#ede7d9]">
+      {contextLost && (
+        <div className="absolute inset-0 z-10 flex items-center justify-center bg-[#14181d] text-[#ede7d9]">
           <p className="font-display text-lg">Obnovování scény Středozemě...</p>
         </div>
-      ) : (
+      )}
         <SceneErrorBoundary>
           <Canvas
             frameloop={isSoftwareGl ? 'never' : 'always'}
@@ -100,7 +100,6 @@ export function GameCanvas() {
             </Suspense>
           </Canvas>
         </SceneErrorBoundary>
-      )}
     </div>
   );
 }

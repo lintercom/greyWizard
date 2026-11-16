@@ -6,21 +6,38 @@ import {
   RANGER_POS,
   SPAWN_POS,
   VILLAGE_POS,
+  VILLAGE_WELL_POS,
   WATCHTOWER_POS,
   clampCameraFractionOutsideObstacles,
   computeSteeredDirection,
   groundHeightAt,
+  riverCenterZ,
   hasLineOfSightXZ,
   isWaterAt,
   resolveObstaclePushOut,
   surfaceSlopeAt,
 } from './terrain';
+import { COTTAGE_SPECS, rotateLocalOffsetXZ } from './collisionSystem';
 import {
   QUEST_STAGES,
   QuestProgressState,
   advanceQuestProgress,
   getRangerDialogue,
 } from './questData';
+
+test('Líska buildings and well stand on dry, level ground clear of the river mesh', () => {
+  for (const cottage of COTTAGE_SPECS) {
+    for (let x = -2.2; x <= 2.2; x += 1.1) {
+      for (let z = -2.6; z <= 2.6; z += 1.3) {
+        const point = rotateLocalOffsetXZ(VILLAGE_POS.x + cottage.dx, VILLAGE_POS.z + cottage.dz, x, z, cottage.rot);
+        assert.ok(Math.abs(point.z - riverCenterZ(point.x)) > 5, 'water mesh overlaps cottage');
+        assert.ok(groundHeightAt(point.x, point.z) > 0.5, 'cottage stands below the river');
+        assert.ok(Math.abs(groundHeightAt(point.x, point.z) - groundHeightAt(VILLAGE_POS.x, VILLAGE_POS.z)) < 0.5, 'cottage foundation floats');
+      }
+    }
+  }
+  assert.ok(!isWaterAt(VILLAGE_WELL_POS.x, VILLAGE_WELL_POS.z));
+});
 import {
   MAIN_QUEST_STEPS,
   StoryFlags,
@@ -32,7 +49,7 @@ import {
   stepStonePuzzle,
 } from './storyData';
 import { clampMusicStepTime } from './audio';
-import { sanitizeCheckpointData } from './store';
+import { liveSim, sanitizeCheckpointData, useGameStore } from './store';
 import {
   MELEE_COMBO_STEPS,
   applyXpGain,
@@ -927,6 +944,66 @@ test('story progression guards prevent out-of-order Grakh kill from skipping Cha
   // Safe step lookup falls back on unknown/corrupt step IDs
   assert.equal(getMainQuestStepDef('unknown_corrupt_step').id, 'ch1_inspect_horse');
   assert.equal(getMainQuestStepDef('ch3_solve_stones').stepNumber, 13);
+});
+
+test('first chapter reconciles an early clue and patrol without skipping its reward', () => {
+  const initialState = useGameStore.getState();
+  const cloth = liveSim.storyInteractables.find((obj) => obj.id === 'cloth_clue');
+  assert.ok(cloth);
+  const oldDone = cloth.done;
+  try {
+    useGameStore.setState({ mainStep: 'ch1_inspect_horse', patrolKilled: 0, knowledgePoints: 0 });
+    cloth.done = false;
+    useGameStore.getState().interactWithStoryObject('cloth_clue');
+    assert.equal(useGameStore.getState().mainStep, 'ch1_inspect_horse');
+    useGameStore.getState().onEnemyKilled('patrol_1', 'goblin_scout', 'patrol');
+    useGameStore.getState().onEnemyKilled('patrol_2', 'goblin_scout', 'patrol');
+    useGameStore.setState({ mainStep: 'ch1_find_edran' });
+    useGameStore.getState().resolveDialogueChoice('edran_rescued_ch1');
+    assert.equal(useGameStore.getState().mainStep, 'ch1_escort_liska');
+    useGameStore.getState().resolveDialogueChoice('advance_to_ch2');
+    assert.equal(useGameStore.getState().mainStep, 'ch2_inspect_caravan');
+    assert.equal(useGameStore.getState().knowledgePoints, 1);
+    useGameStore.getState().resolveDialogueChoice('advance_to_ch2');
+    assert.equal(useGameStore.getState().knowledgePoints, 1);
+  } finally {
+    cloth.done = oldDone;
+    useGameStore.setState(initialState, true);
+  }
+});
+
+test('first chapter requires the clue even if the patrol is defeated first', () => {
+  const initialState = useGameStore.getState();
+  const cloth = liveSim.storyInteractables.find((obj) => obj.id === 'cloth_clue');
+  assert.ok(cloth);
+  const oldDone = cloth.done;
+  try {
+    cloth.done = false;
+    useGameStore.setState({ mainStep: 'ch1_find_edran', patrolKilled: 0, knowledgePoints: 0 });
+    useGameStore.getState().resolveDialogueChoice('edran_rescued_ch1');
+    assert.equal(useGameStore.getState().mainStep, 'ch1_track_scouts');
+    useGameStore.getState().onEnemyKilled('patrol_1', 'goblin_scout', 'patrol');
+    useGameStore.getState().onEnemyKilled('patrol_2', 'goblin_scout', 'patrol');
+    assert.equal(useGameStore.getState().mainStep, 'ch1_track_scouts');
+    useGameStore.getState().interactWithStoryObject('cloth_clue');
+    assert.equal(useGameStore.getState().mainStep, 'ch1_escort_liska');
+  } finally {
+    cloth.done = oldDone;
+    useGameStore.setState(initialState, true);
+  }
+});
+
+test('a single XP award grants stats for every gained level', () => {
+  const initialState = useGameStore.getState();
+  try {
+    useGameStore.setState({ level: 1, xp: 0, hp: 120, maxHp: 120, mana: 100, maxMana: 100 });
+    useGameStore.getState().grantXp(275);
+    assert.equal(useGameStore.getState().level, 3);
+    assert.equal(useGameStore.getState().maxHp, 140);
+    assert.equal(useGameStore.getState().maxMana, 120);
+  } finally {
+    useGameStore.setState(initialState, true);
+  }
 });
 
 test('sanitizeCheckpointData clamps invalid fields and reconciles legacy dead enemies', () => {

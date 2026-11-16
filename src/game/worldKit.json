@@ -1,0 +1,42 @@
+{
+  "assets": {
+    "waystone": {"boxes": [[0,1.1,0,0.48,1.3,0.42]]},
+    "shelter": {"boxes": [[-1.4,1.1,0,0.13,1.3,1.2],[1.4,1.1,0,0.13,1.3,1.2],[0,1,-1.1,1.5,1.2,0.15],[0,2.5,0,1.65,0.35,1.4]]},
+    "cottage": {"boxes": [[0,1.6,0,2.18,1.9,2.58]]},
+    "cairn": {"boxes": [[0,0.65,0,0.7,0.85,0.65]]},
+    "palisade": {"boxes": [[0,1.1,0,2.0,1.3,0.3]]},
+    "cargo": {"boxes": [[0,0.65,0,1.1,0.85,0.75]]},
+    "derrick": {"boxes": [[-1.6,1.9,0,0.2,2.1,0.25],[1.6,1.9,0,0.2,2.1,0.25],[0,4.0,0,1.9,0.25,0.3]]},
+    "dwarf_pillar": {"boxes": [[0,2.5,0,0.85,2.7,0.85]]},
+    "ruin_wall": {"boxes": [[0,1.8,0,2.5,2.0,0.65]]},
+    "watchtower": {"boxes": [[0,3.6,0,1.7,3.8,1.7]]}
+  },
+  "placements": [
+    {"id":"south_marker","asset":"waystone","x":-4.5,"z":55,"rotation":0.1},
+    {"id":"south_ruin","asset":"ruin_wall","x":7,"z":59,"rotation":0.35},
+    {"id":"ranger_shelter","asset":"shelter","x":10,"z":39,"rotation":-0.6},
+    {"id":"ranger_supplies","asset":"cargo","x":10,"z":35,"rotation":0.4},
+    {"id":"trail_memorial","asset":"waystone","x":-7,"z":30,"rotation":-0.2},
+    {"id":"ford_south","asset":"cairn","x":-20,"z":8,"rotation":0},
+    {"id":"ford_north","asset":"cairn","x":-9,"z":-3,"rotation":0.7},
+    {"id":"liska_east_cottage","asset":"cottage","x":35,"z":22,"rotation":-1.5},
+    {"id":"liska_stores","asset":"cargo","x":31,"z":22,"rotation":-0.2},
+    {"id":"camp_north_wall","asset":"palisade","x":-23,"z":-21,"rotation":0.1},
+    {"id":"camp_west_wall","asset":"palisade","x":-30,"z":-16,"rotation":1.4},
+    {"id":"camp_loot","asset":"cargo","x":-28,"z":-10,"rotation":0.3},
+    {"id":"camp_warning","asset":"waystone","x":-27,"z":-5,"rotation":0.6},
+    {"id":"quarry_crane","asset":"derrick","x":-34,"z":-27,"rotation":0.2},
+    {"id":"quarry_stock","asset":"cargo","x":-31,"z":-33,"rotation":1.0},
+    {"id":"mine_west_monument","asset":"dwarf_pillar","x":26,"z":-24,"rotation":0},
+    {"id":"mine_east_monument","asset":"dwarf_pillar","x":38,"z":-24,"rotation":0},
+    {"id":"mine_crane","asset":"derrick","x":37,"z":-18,"rotation":-0.4},
+    {"id":"mine_supply","asset":"cargo","x":27,"z":-21,"rotation":0.2},
+    {"id":"north_waystone","asset":"waystone","x":-17,"z":-36,"rotation":0.2},
+    {"id":"fort_west_tower","asset":"watchtower","x":-18,"z":-55,"rotation":0.05},
+    {"id":"fort_east_tower","asset":"watchtower","x":6,"z":-55,"rotation":-0.1},
+    {"id":"fort_rear_west","asset":"ruin_wall","x":-11,"z":-62,"rotation":0},
+    {"id":"fort_rear_east","asset":"ruin_wall","x":-1,"z":-62,"rotation":0},
+    {"id":"fort_west_wall","asset":"ruin_wall","x":-19,"z":-49,"rotation":1.57},
+    {"id":"fort_east_wall","asset":"ruin_wall","x":7,"z":-49,"rotation":1.57}
+  ]
+}

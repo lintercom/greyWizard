@@ -30,7 +30,7 @@ export const CHAPTERS: Record<ChapterId, ChapterDef> = {
     title: 'Zhaslá světla',
     targetMinutes: 15,
     summary:
-      'Strážní oheň na severní věži pohasl a z lesa vyběhl vyděšený kůň bez jezdce. Najdi zraněného hraničáře Edrana a doprovoď jej do osady Líska.',
+      'Gandalf pátrá po zprávách o zmizelých poutnících. Když na severním hřebeni pohasne strážní oheň, stopa koně bez jezdce ho přivede ke zraněnému hraničáři Edranovi.',
   },
   2: {
     id: 2,
@@ -116,7 +116,7 @@ export const MAIN_QUEST_STEPS: Record<MainQuestStepId, MainQuestStepDef> = {
     title: 'Zhaslá světla · Kůň bez jezdce',
     objective: 'Prohlédni zakrvácené sedlo u opuštěného koně na lesní stezce [F]',
     journalEntry:
-      'Rok 2960 Třetího věku. Na severním hřebeni zhasl signální oheň. Z lesa vyběhl vyděšený kůň bez jezdce.',
+      'Rok 2960 Třetího věku. Gandalf putuje severním údolím za zprávami o zmizelých poutnících. Na hřebeni zhasl strážní oheň a z lesa vyběhl vyděšený kůň bez jezdce.',
     targetPos: { x: SPAWN_POS.x + 2.5, z: SPAWN_POS.z - 5.5 },
   },
   ch1_find_edran: {
@@ -154,9 +154,9 @@ export const MAIN_QUEST_STEPS: Record<MainQuestStepId, MainQuestStepDef> = {
     chapter: 1,
     stepNumber: 5,
     title: 'Zhaslá světla · Osada Líska',
-    objective: 'Vrať se přes východní stezku do osady Líska a promluv s Mirou a Edranem [F]',
+    objective: 'Vydej se do osady Líska a promluv s Mirou nebo Edranem [F]',
     journalEntry:
-      'Cesta je volná. Léčitelka Mira v osadě Líska poskytla Edranovi přístřeší. Promluv s nimi o nalezené látce.',
+      'Edran se po ošetření vydal známou lesní stezkou k léčitelce Miře. Cesta je nyní volná; v Lísce zjistíš, jak se mu daří.',
     targetPos: VILLAGE_POS,
   },
   ch2_talk_village: {
@@ -880,9 +880,9 @@ export function buildNpcDialogue(
         speaker: 'Edran',
         role: 'Zraněný hraničář Dúnadan',
         lines: [
-          'Mithrandire… díky hvězdám, že jsi přišel včas. Moji družinu přepadli ze zálohy kousek od brodu.',
-          'Nebyli to jen rozprášení lupiči. Pohybovali se na povel, kryli si křídla a mířili přímo na naše strážní ohně.',
-          'Vyčisti cestu na sever, než přivedou další posily, a pak se za mnou zastav u léčitelky Miry v osadě Líska.',
+          'Mithrandire… můj kůň tě tedy našel. Přepadli nás u brodu a ostatní z hlídky jsem v té tmě ztratil.',
+          'Skřeti se pohybovali na povel. Věděli, kde hlídáme, a nejdřív zaútočili na náš strážní oheň.',
+          'Děkuji za obvaz. Dojdu skrytou lesní stezkou k léčitelce Miře v Lísce. Na hlavní cestě ale zůstali zvědové. Najdi mě pak v osadě.',
         ],
         choices: [
           {
@@ -891,7 +891,7 @@ export function buildNpcDialogue(
             effectId: 'edran_rescued_ch1',
           },
           {
-            label: '[Přímý zásah] Odpočiň si, Edrane. Sám tu skřetí hlídku smetu z cesty.',
+            label: '[Přímý zásah] Ošetřím tě. Dostaň se do bezpečí, o hlídku se postarám.',
             tone: 'direct',
             effectId: 'edran_rescued_ch1',
           },
@@ -904,9 +904,9 @@ export function buildNpcDialogue(
         speaker: 'Edran',
         role: 'Hraničář Dúnadan (Osada Líska)',
         lines: [
-          'Skřeti se nikdy neodvažovali tak hluboko do údolí. A teď? Přepadávají naše hlídky jako vycvičení vojáci.',
-          'Před třemi dny navíc zmizela obchodní karavana mířící k průsmyku. Správce Rovan tvrdí, že zajeli příliš daleko na sever — ale něco na tom nesedí.',
-          'Prozkoumej trosky vozů na lesní stezce a najdi stopy přeživších.',
+          'Mira mi ránu zavázala. Díky tobě jsem se dostal domů, Mithrandire. Ostatní z mé hlídky ale stále pohřešujeme.',
+          'Před třemi dny zmizela i karavana. Rovan říká, že kupec zvolil cestu na sever. Zajímalo by mě, kdo všechno o té cestě věděl.',
+          'Vozy zůstaly na lesní stezce. Najdeš-li přeživšího, možná nám poví víc než já.',
         ],
         choices: [
           {
@@ -1006,9 +1006,9 @@ export function buildNpcDialogue(
         speaker: 'Mira',
         role: 'Vesnická léčitelka (Osada Líska)',
         lines: [
-          'Vítej v Lísce, Šedý poutníku. Edranovy rány jsou ošetřené, ale z lesa přicházejí čím dál horší zprávy.',
-          'Zatímco si odpočineš u našeho ohniště, můžeš zde kdykoli připravit léčivé obklady nebo bylinné odvary.',
-          'Promluv si s Edranem i správcem karavan Rovanem — před pár dny zmizela zásobovací karavana.',
+          'Vítej v Lísce, Šedý poutníku. Edran došel lesní stezkou sotva po svých, ale tvůj obvaz mu zachránil život.',
+          'Zastav se u našeho ohniště, kdykoli budeš potřebovat nabrat síly. Zásob ubývá a z lesa se nevrátila ani poslední karavana.',
+          'Edran ví, kde vozy napadli. Prosím, zjisti, jestli někdo přežil.',
         ],
         choices: [
           { label: 'Děkuji za pomoc, Miro. Pustím se do pátrání.', tone: 'wisdom', effectId: 'advance_to_ch2' },

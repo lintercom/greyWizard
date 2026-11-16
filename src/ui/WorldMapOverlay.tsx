@@ -22,6 +22,7 @@ import {
   CAVE_POS,
   FORD_POS,
   ROAD_WAYPOINTS,
+  BRANCH_PATHS,
   VILLAGE_POS,
   WATCHTOWER_POS,
   WATERFALL_POS,
@@ -268,21 +269,16 @@ function getOrBuildParchmentCanvas(): HTMLCanvasElement {
   ctx.stroke();
   ctx.setLineDash([]);
 
-  // Secondary branch trail from trail junction toward Osada Líska
-  const branchStart = toPx(ROAD_WAYPOINTS[3].x, ROAD_WAYPOINTS[3].z);
+  // Same secondary paths as the terrain and vegetation clearance.
   const villageP = toPx(VILLAGE_POS.x, VILLAGE_POS.z);
-  ctx.beginPath();
-  ctx.moveTo(branchStart.x, branchStart.y);
-  ctx.quadraticCurveTo(
-    (branchStart.x + villageP.x) * 0.5 + 14,
-    (branchStart.y + villageP.y) * 0.5 + 16,
-    villageP.x,
-    villageP.y,
-  );
-  ctx.strokeStyle = 'rgba(111, 81, 52, 0.55)';
+  ctx.strokeStyle = 'rgba(111, 81, 52, 0.65)';
   ctx.lineWidth = 1.8;
   ctx.setLineDash([5, 5]);
-  ctx.stroke();
+  for (const path of BRANCH_PATHS) {
+    ctx.beginPath();
+    path.forEach((wp,i) => { const p = toPx(wp.x,wp.z); if(i===0) ctx.moveTo(p.x,p.y); else ctx.lineTo(p.x,p.y); });
+    ctx.stroke();
+  }
   ctx.restore();
 
   // 5. Hand-Drawn Pine Clusters (matching 3D world trees)

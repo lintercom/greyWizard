@@ -945,7 +945,7 @@ export const useGameStore = create<GameStoreState>((set, get) => ({
   maxStamina: 100,
   level: 1,
   xp: 0,
-  knowledgePoints: 1, // Gandalf starts with 1 Knowledge Point as an experienced Istari
+  knowledgePoints: 0, // The first specialization is earned on arrival in Líska.
   unlockedSkills: [],
   staffLightOn: false,
   shieldActive: false,
@@ -1093,7 +1093,7 @@ export const useGameStore = create<GameStoreState>((set, get) => ({
       maxStamina: 100,
       level: 1,
       xp: 0,
-      knowledgePoints: 1,
+      knowledgePoints: 0,
       unlockedSkills: [],
       staffLightOn: false,
       shieldActive: false,
@@ -1317,9 +1317,12 @@ export const useGameStore = create<GameStoreState>((set, get) => ({
       case 'edran_rescued_ch1': {
         nextFlags.edranRescued = true;
         if (nextStep === 'ch1_find_edran') {
-          nextStep = 'ch1_track_scouts';
+          const clothFound = liveSim.storyInteractables.some((obj) => obj.id === 'cloth_clue' && obj.done);
+          nextStep = clothFound ? (s.patrolKilled >= 2 ? 'ch1_escort_liska' : 'ch1_defeat_scouts') : 'ch1_track_scouts';
           notifTitle = 'Edran ošetřen';
-          notifSub = 'Sleduj stopy útočníků v borovicích směrem na sever [F]';
+          notifSub = clothFound
+            ? (s.patrolKilled >= 2 ? 'Edran zamířil do Lísky. Vydej se za ním.' : 'Edran zamířil do Lísky. Zastav zbývající průzkumníky.')
+            : 'Edran míří do Lísky. Prozkoumej stopy útočníků v borovicích [F]';
           shouldSave = true;
         }
         break;
@@ -1330,7 +1333,7 @@ export const useGameStore = create<GameStoreState>((set, get) => ({
           kpGain += 1;
           nextSq = syncSideQuestUnlocks(2, nextSq);
           notifTitle = 'Kapitola II: Stopy v popelu';
-          notifSub = 'Získán +1 Bod poznání · Prozkoumej přepadenou karavanu u stezky';
+          notifSub = 'Získán první Bod poznání · Otevři deník [Tab] a zvol si vylepšení';
           shouldSave = true;
         }
         break;
@@ -1722,7 +1725,7 @@ export const useGameStore = create<GameStoreState>((set, get) => ({
       notification: title ? { title, subtitle: sub, expiresAt: Date.now() + 4200 } : s.notification,
     });
     get().grantXp(xpGain);
-    if (kpGain > 0 || obj.kind === 'camp_map' || obj.kind === 'mine_orders' || obj.kind === 'sq_wagon') {
+    if (kpGain > 0 || obj.kind === 'horse_clue' || obj.kind === 'cloth_clue' || obj.kind === 'camp_map' || obj.kind === 'mine_orders' || obj.kind === 'sq_wagon') {
       get().saveCheckpoint(true);
     }
   },
@@ -1742,6 +1745,7 @@ export const useGameStore = create<GameStoreState>((set, get) => ({
         expiresAt: Date.now() + 3600,
       },
     });
+    get().saveCheckpoint(true);
   },
 
   craftRecipe: (recipeId) => {
@@ -1920,8 +1924,9 @@ export const useGameStore = create<GameStoreState>((set, get) => ({
     const s = get();
     if (s.discoveredLocations.includes(locId)) return;
     const xpRes = applyXpGain(s.level, s.xp, xpReward);
-    const maxHp = xpRes.leveledUp ? s.maxHp + 10 : s.maxHp;
-    const maxMana = xpRes.leveledUp ? s.maxMana + 10 : s.maxMana;
+    const levelsGained = xpRes.level - s.level;
+    const maxHp = s.maxHp + levelsGained * 10;
+    const maxMana = s.maxMana + levelsGained * 10;
     const lm = LANDMARKS.find((l) => l.id === locId);
     const fogUpdate = lm ? revealFogRadius(s.fogGrid, lm.x, lm.z, lm.radius + 8) : { next: s.fogGrid, changed: false };
     gameAudio.playQuestChime();
@@ -1945,8 +1950,9 @@ export const useGameStore = create<GameStoreState>((set, get) => ({
   grantXp: (amount) => {
     set((s) => {
       const res = applyXpGain(s.level, s.xp, amount);
-      const maxHp = res.leveledUp ? s.maxHp + 10 : s.maxHp;
-      const maxMana = res.leveledUp ? s.maxMana + 10 : s.maxMana;
+      const levelsGained = res.level - s.level;
+      const maxHp = s.maxHp + levelsGained * 10;
+      const maxMana = s.maxMana + levelsGained * 10;
       return {
         level: res.level,
         xp: res.xp,
@@ -1970,7 +1976,7 @@ export const useGameStore = create<GameStoreState>((set, get) => ({
 
     if (group === 'patrol') {
       nextPatrolKilled += 1;
-      if ((s.mainStep === 'ch1_track_scouts' || s.mainStep === 'ch1_defeat_scouts') && nextPatrolKilled >= 2) {
+      if (s.mainStep === 'ch1_defeat_scouts' && nextPatrolKilled >= 2) {
         nextStep = 'ch1_escort_liska';
         notifTitle = 'Skřetí průzkumníci poraženi';
         notifSub = 'Vydej se do osady Líska (východně za stezkou) k Miře a Edranovi [F]';
@@ -2090,7 +2096,7 @@ export const useGameStore = create<GameStoreState>((set, get) => ({
         s.notify('Postup uložen', 'Automatický záchytný bod byl zaznamenán', 2200);
       }
     } catch {
-      // ignore storage quota errors
+      s.notify('Postup se nepodařilo uložit', 'Zkontroluj dostupné místo a oprávnění úložiště prohlížeče.', 6000);
     }
   },
 

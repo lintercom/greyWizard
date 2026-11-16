@@ -9,6 +9,7 @@ import {
   groundHeightAt,
   riverCenterZ,
 } from './terrain';
+import { nearWorldStructure } from './worldKit';
 
 export function seededRand(seed: number): number {
   const x = Math.sin(seed * 12.9898 + 78.233) * 43758.5453;
@@ -79,11 +80,12 @@ function buildWorldDecorPlacements(): WorldDecorPlacements {
   const pines: TreeTransformDef[] = [];
   const oaks: TreeTransformDef[] = [];
 
-  for (let i = 0; i < 480; i++) {
+  for (let i = 0; i < 750; i++) {
     const r = 13 + seededRand(i * 3 + 1) * 76;
     const a = seededRand(i * 7 + 2) * Math.PI * 2;
     const x = Math.cos(a) * r;
     const z = Math.sin(a) * r;
+    if (nearWorldStructure(x,z,2)) continue;
     if (distanceToRoad(x, z) < 5.6) continue;
     // Keep title screen & spawn camera sightlines uncluttered
     if (z > 46 && Math.abs(x) < 14) continue;
@@ -98,7 +100,7 @@ function buildWorldDecorPlacements(): WorldDecorPlacements {
     const y = groundHeightAt(x, z);
     if (y > 9.5 || y < -0.1) continue;
 
-    const preferOak = z > -5 && y < 3.6 && seededRand(i * 19 + 5) < 0.36;
+    const preferOak = z > 8 && y < 4.2 && seededRand(i * 19 + 5) < 0.78;
     const entry: TreeTransformDef = {
       x,
       y,
@@ -109,12 +111,12 @@ function buildWorldDecorPlacements(): WorldDecorPlacements {
       leanZ: (seededRand(i * 19 + 2) - 0.5) * 0.065,
       tint: i % 4,
     };
-    if (preferOak && oaks.length < 56) {
+    if (preferOak && oaks.length < 90) {
       oaks.push(entry);
-    } else if (pines.length < 162) {
+    } else if (pines.length < 180) {
       pines.push(entry);
     }
-    if (pines.length >= 162 && oaks.length >= 56) break;
+    if (pines.length >= 180 && oaks.length >= 90) break;
   }
 
   const bushes: BushTransformDef[] = [];
@@ -123,6 +125,7 @@ function buildWorldDecorPlacements(): WorldDecorPlacements {
     const a = seededRand(i * 17 + 9) * Math.PI * 2;
     const x = Math.cos(a) * r;
     const z = Math.sin(a) * r;
+    if (nearWorldStructure(x,z,2)) continue;
     if (distanceToRoad(x, z) < 3.8) continue;
     if (Math.abs(z - riverCenterZ(x)) < 5.0) continue;
     if (Math.hypot(x - VILLAGE_POS.x, z - VILLAGE_POS.z) < 11) continue;
@@ -146,7 +149,13 @@ function buildWorldDecorPlacements(): WorldDecorPlacements {
     const a = seededRand(i * 23 + 7) * Math.PI * 2;
     const x = Math.cos(a) * r;
     const z = Math.sin(a) * r;
+    if (nearWorldStructure(x,z,2)) continue;
     if (distanceToRoad(x, z) < 3.8) continue;
+    // Do not let large random boulders obstruct the village or story clearings.
+    if (Math.hypot(x - VILLAGE_POS.x, z - VILLAGE_POS.z) < 13) continue;
+    if (Math.hypot(x - RANGER_POS.x, z - RANGER_POS.z) < 7) continue;
+    if (Math.hypot(x - PATROL_POS.x, z - PATROL_POS.z) < 7) continue;
+    if (Math.hypot(x - CAMPSITE_POS.x, z - CAMPSITE_POS.z) < 7) continue;
     const y = groundHeightAt(x, z);
     rocks.push({
       x,
@@ -169,6 +178,10 @@ function buildWorldDecorPlacements(): WorldDecorPlacements {
     const a = seededRand(i * 9 + 3) * Math.PI * 2;
     const x = Math.cos(a) * r;
     const z = Math.sin(a) * r;
+    if (nearWorldStructure(x,z,2)) continue;
+    if (Math.hypot(x-VILLAGE_POS.x,z-VILLAGE_POS.z)<11) continue;
+    if (Math.hypot(x-CAVE_POS.x,z-CAVE_POS.z)<7) continue;
+    if (Math.hypot(x-WATCHTOWER_POS.x,z-WATCHTOWER_POS.z)<16) continue;
     if (distanceToRoad(x, z) < 2.85) continue;
     if (Math.abs(z - riverCenterZ(x)) < 4.6) continue;
     const y = groundHeightAt(x, z);
@@ -190,6 +203,7 @@ function buildWorldDecorPlacements(): WorldDecorPlacements {
     const a = seededRand(i * 11 + 5) * Math.PI * 2;
     const x = Math.cos(a) * r;
     const z = Math.sin(a) * r;
+    if (nearWorldStructure(x,z,2)) continue;
     if (distanceToRoad(x, z) < 3.0) continue;
     if (Math.abs(z - riverCenterZ(x)) < 4.8) continue;
     const y = groundHeightAt(x, z);

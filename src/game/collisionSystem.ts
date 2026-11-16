@@ -7,6 +7,7 @@ import {
   RANGER_POS,
   SPAWN_POS,
   VILLAGE_POS,
+  VILLAGE_WELL_POS,
   WATCHTOWER_POS,
   WATERFALL_POS,
   clamp,
@@ -14,6 +15,7 @@ import {
   riverCenterZ,
 } from './terrain';
 import { WORLD_DECOR_PLACEMENTS } from './worldPlacements';
+import { WORLD_KIT, type KitAsset } from './worldKit';
 
 export type CollisionCategory =
   | 'STATIC_WORLD'
@@ -232,6 +234,16 @@ export const WATCHTOWER_DAIS = {
 function buildStaticWorldColliders(): StaticColliderDef[] {
   const list: StaticColliderDef[] = [];
 
+  // Identical authored boxes drive Rapier, camera occlusion, AI and projectiles.
+  for (const p of WORLD_KIT.placements) {
+    const baseY = groundHeightAt(p.x,p.z);
+    WORLD_KIT.assets[p.asset as KitAsset].boxes.forEach((b,i) => {
+      const pt = rotateLocalOffsetXZ(p.x,p.z,b[0],b[2],p.rotation);
+      list.push(makeObb({id:`kit_${p.id}_${i}`,tag:'prop',x:pt.x,z:pt.z,
+        halfX:b[3],halfZ:b[5],rotY:p.rotation,minY:baseY+b[1]-b[4],maxY:baseY+b[1]+b[4]}));
+    });
+  }
+
   const villageY = groundHeightAt(VILLAGE_POS.x, VILLAGE_POS.z);
   const campY = groundHeightAt(CAMPSITE_POS.x, CAMPSITE_POS.z);
   const caveY = groundHeightAt(CAVE_POS.x, CAVE_POS.z);
@@ -256,6 +268,13 @@ function buildStaticWorldColliders(): StaticColliderDef[] {
       }),
     );
   });
+
+  const wellY = groundHeightAt(VILLAGE_WELL_POS.x, VILLAGE_WELL_POS.z);
+  list.push(makeCylinder({
+    id: 'liska_well', tag: 'prop', x: VILLAGE_WELL_POS.x, z: VILLAGE_WELL_POS.z,
+    radius: 0.96, minY: wellY - 0.1, maxY: wellY + 2.4,
+    blocksCamera: false, blocksLos: false,
+  }));
 
   // Rovan's ledger table & barrel
   list.push(

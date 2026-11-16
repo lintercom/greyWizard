@@ -71,7 +71,7 @@ export function TitleScreen() {
           <div className="w-28 h-px bg-gradient-to-r from-[#c89d54]/75 to-transparent mb-4" />
 
           <p className="text-sm md:text-base text-slate-200/92 leading-relaxed mb-8 max-w-md hud-text-shadow">
-            Na hřebeni pohasl strážní oheň a z lesa vyběhl kůň bez jezdce. Vydej se jako Gandalf Šedý přes osadu Líska a staré trpasličí štoly odhalit zradu, ochránit údolí a porazit pána průsmyku Grakha.
+            Při pátrání po zmizelých poutnících spatříš na severním hřebeni zhasínající strážní oheň. Z lesa vyběhne vyděšený kůň bez jezdce. Jeho pán možná ještě potřebuje pomoc.
           </p>
 
           {!showSettings ? (
