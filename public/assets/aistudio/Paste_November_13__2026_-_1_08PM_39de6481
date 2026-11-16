@@ -1,0 +1,848 @@
+GANDALF: STÍNY SEVERU
+Kompletní scénáristický a herní návrh · Verze 1.0 · Fanouškovské 3D RPG ze Středozemě
+
+Chci z toho udělat příběhové dobrodružství, které by mohlo fungovat jako samostatná menší hra. Ne pouhou sérii úkolů typu „zabij deset skřetů“, ale skutečný Tolkienovský příběh s tajemstvím, lidskými osudy, morálními rozhodnutími a postupně rostoucím nebezpečím.
+
+Zároveň celý návrh přizpůsobím naší existující low poly hře v Google AI Studiu. Nebudeme tedy potřebovat obrovskou Středozem, stovky NPC ani desítky hodin vývoje dalších lokací.
+PLÁNOVANÝ ROZSAH HRY
+110
+minut hlavního příběhu
+60
+minut vedlejších úkolů
+170
+minut celkového obsahu
+
+
+Předpokládaná délka: přibližně 2,5–3 hodiny při dokončení všeho obsahu, podle hráčova tempa.
+
+Hlavní postava: Gandalf Šedý
+
+Období: Třetí věk, rok 2960
+
+Herní styl: Akční RPG z pohledu třetí osoby
+
+Struktura: Jedna propojená otevřená oblast, šest hlavních a čtyři vedlejší úkoly
+
+Atmosféra: Tajemství, průzkum, naděje, odvaha a postupně sílící temnota
+
+Všechny následující události a nové postavy jsou původní fanouškovskou fikcí. Časové zasazení respektuje hlavní Tolkienovu chronologii, ale nejde o kanonický příběh.
+1. Scénáristický základ
+Ústřední myšlenka
+Největší vítězství nad temnotou nepřichází vždy díky síle, ale díky odvaze, důvěře a schopnosti pomáhat druhým.
+
+Gandalf je na začátku hry už velmi zkušený čaroděj. Nemusí se učit být mocným. Jeho skutečnou výzvou bude odhalit pravdu a rozhodnout, jak zachránit nevinné, aniž by zbytečně vystavil ostatní nebezpečí.
+Výchozí situace
+Rok 2960 Třetího věku.
+
+Sauron se již vrátil do Mordoru. Jeho vliv postupně sílí, ale obyčejní obyvatelé severozápadní Středozemě o rozsahu nebezpečí zatím příliš nevědí.
+
+Gandalf putuje krajinou nedaleko západního úpatí Mlžných hor.
+
+V posledních týdnech se v jedné odlehlé oblasti začaly ztrácet karavany. Místní hraničáři objevují stopy skřetů, kteří se chovají nezvykle organizovaně.
+
+Zpočátku vše vypadá jako obyčejné přepady.
+
+Pak však Gandalf objeví něco znepokojivějšího: někdo z místních obyvatel nepřátelům pomáhá a záměrně oslabuje ochranu údolí.
+Hlavní konflikt
+Skřetí velitel Grakh chce obnovit zapomenutý horský průchod a využít jej jako bezpečnou trasu pro nájezdy. Pokud uspěje, okolní osady přijdou o ochranu a další výpravy skřetů budou moci pronikat hluboko do kraje.
+
+Gandalf musí odhalit jeho síť, zachránit zajatce a zabránit rozsvícení signálních ohňů, které oznámí nepřátelům otevření průchodu.
+
+Ale během pátrání se ukáže, že jeden z Grakhových pomocníků není zlý člověk. Je to zoufalý muž, který se snaží zachránit člena své rodiny.
+
+To je morální jádro celého příběhu.
+2. Hlavní postavy
+Postava	Úloha	Charakter a motivace
+Gandalf Šedý	Hratelný protagonista	Moudrý poutník, který dává přednost rozumu a soucitu před násilím
+Edran	Hraničář Dúnadan	Statečný, ale nedůvěřivý muž, který přišel o několik spolubojovníků
+Mira	Vesnická léčitelka	Praktická, odvážná žena, která chrání obyvatele údolí
+Bruni	Trpasličí řemeslník	Znalec starých horských cest a zapomenutých staveb
+Rovan	Správce obchodních karavan	Muž, který tajně pomáhá skřetům, protože drží jeho sestru v zajetí
+Nela	Rovanova sestra	Zajatkyně, jejíž osud je klíčem k pochopení Rovanova jednání
+Grakh	Hlavní antagonista	Krutý a ambiciózní skřetí velitel toužící získat moc nad horskými průchody
+
+Gandalfův osobní vývoj
+Gandalf neprojde klasickou proměnou ze slabého hrdiny v silného. Jeho dramatický oblouk bude jiný:
+- Začátek: Věří, že jde o menší problém, který vyřeší pátráním a několika zásahy.
+- Prostředek: Zjišťuje, že lidé mohou zradit druhé ze strachu, nikoli ze zloby.
+- Vyvrcholení: Musí skloubit záchranu zajatců, zastavení nepřátel a ochranu vesnice.
+- Závěr: Znovu se potvrzuje jeho přesvědčení, že i malá rozhodnutí obyčejných lidí mohou ovlivnit osud většího světa.
+3. Herní svět
+Nepotřebujeme vytvářet celou Středozem. Vystačíme s jedním údolím tvořeným několika propojenými oblastmi.
+Zjednodušená mapa herního světa
+
+Jedna souvislá mapa: osada slouží jako bezpečná základna, okolní lesy a ruiny jako prostor pro průzkum a horská pevnost jako finální oblast.
+Každou oblast hráč navštíví opakovaně, ale za různých okolností. Například les bude při první návštěvě tajemný a klidný, při druhé v něm budou pátrat skřeti a před finále se stane cestou k nepřátelské pevnosti.
+
+To nám umožní vytvořit dvě až tři hodiny smysluplného obsahu bez potřeby obrovské mapy.
+4. Kompletní struktura hlavní kampaně
+Kapitola	Název	Cílová délka
+I	Zhaslá světla	15 min
+II	Stopy v popelu	17 min
+III	Jména vytesaná do kamene	20 min
+IV	Cena ticha	20 min
+V	Oheň na hřebeni	28 min
+VI	Úsvit nad údolím	10 min
+Celkem		110 min
+
+Časy jsou cílové odhady pro běžné hraní včetně rozhovorů, průzkumu a soubojů. Nejde o zaručenou délku; při implementaci ji bude nutné ověřit hraním.
+5. Hlavní příběh – scénář jednotlivých kapitol
+KAPITOLA I – Zhaslá světla
+15 minut · Úvod, první tajemství, představení světa
+
+Úvodní filmová scéna
+
+Kamera pomalu klouže nad zalesněným údolím. Mezi stromy se převaluje ranní mlha. V dálce se tyčí vrcholky Mlžných hor.
+
+Po úzké stezce přichází Gandalf. Opírá se o hůl a tiše si prozpěvuje.
+
+Zastaví se.
+
+Na vzdáleném hřebeni stojí strážní věž. V její horní části se obvykle rozsvěcí signální oheň, který upozorňuje obchodníky na bezpečný průchod údolím.
+
+Dnes je však věž temná.
+
+Z lesa náhle přiběhne vyděšený kůň bez jezdce.
+
+Gandalf přistoupí blíž. Na jeho sedle nachází krev.
+Gandalf: „Kůň bez pána, cesta bez strážců… To nejsou dobrá znamení.“
+
+Hráč poprvé získává kontrolu nad postavou.
+
+Průběh úkolu
+1. Prozkoumat lesní stezku. Hráč se učí pohybovat, ovládat kameru, používat hůl jako zdroj světla a zkoumat předměty.
+2. Najít zraněného hraničáře. Edran leží mezi skalami. Gandalf mu poskytne základní pomoc a zjistí, že jeho družinu přepadli skřeti.
+3. Sledovat stopy útočníků. Hráč nachází zlomené šípy, stopy po táboření a černou látku se zvláštním symbolem.
+4. První souboj. Na cestě stojí dva skřetí průzkumníci. Hráč se naučí útočit, bránit, uskakovat a používat světelný záblesk.
+5. Doprovodit Edrana do osady Líska. Hráč poznává Miru, obchodníky a bezpečné centrum herního světa.
+Klíčová dialogová scéna
+
+Edran sedí v domě léčitelky. Gandalf studuje nalezenou látku.
+
+Edran: „Skřeti se nikdy neodvažovali tak hluboko do údolí. A teď? Přepadávají naše hlídky jako vycvičení vojáci.“
+
+Gandalf: „Zlo se někdy naučí pořádku rychleji než lidé.“
+
+Edran: „Myslíš, že za nimi někdo stojí?“
+
+Gandalf: „Myslím, že bychom měli zjistit, proč zhaslo světlo na věži.“
+
+Kapitola končí pohledem na vzdálené hory.
+Herní výsledek
+
+Hráč získá první mapu údolí, přístup do osady, deník úkolů a základní inventář.
+
+Scénáristický háček: Skřeti jsou mnohem organizovanější, než by měli být.
+
+KAPITOLA II – Stopy v popelu
+17 minut · Vyšetřování, první skutečné nebezpečí
+
+Edran informuje Gandalfa, že před několika dny zmizela obchodní karavana.
+
+Správce karavan Rovan tvrdí, že ji naposledy viděli mířit k horskému průsmyku.
+
+Gandalf se vydává po jejích stopách.
+
+Herní úkoly
+1. Najít místo přepadení karavany.
+2. Prozkoumat rozbité vozy a získat tři důkazy.
+3. Vyslechnout skrytého přeživšího obchodníka.
+4. Vypořádat se se skřetí hlídkou nebo ji obejít.
+5. Prozkoumat opuštěný tábor útočníků.
+6. Vrátit se s důkazy do osady.
+Hráč nemusí bojovat s každým nepřítelem. Díky plížení a odlákání hlídek může část oblasti prozkoumat bez souboje.
+
+První zásadní odhalení
+
+Gandalf nachází záznamy o přepravovaném zboží.
+
+Některé bedny obsahovaly obyčejné potraviny, látky a nástroje.
+
+Jiné byly označeny jako majetek správy údolí.
+
+Obchodník, který útok přežil, prohlásí:
+
+Obchodník: „Nebyli tam jen skřeti. Někdo jim ukazoval cestu.“
+
+Gandalf: „Viděl jsi jeho tvář?“
+
+Obchodník: „Ne. Ale rozuměli si. Jeden z nich mluvil naším jazykem.“
+
+Gandalf: „Pak nehledáme jen nepřítele v horách.“
+
+Gandalf v táboře objeví také část staré mapy zobrazující zapomenutou trpasličí cestu.
+
+Na mapě je symbol podobný značce na látce z první kapitoly.
+
+Závěrečný obrat: Nepřátelé zjevně hledají konkrétní průchod horami a někdo z místních jim poskytuje informace.
+KAPITOLA III – Jména vytesaná do kamene
+20 minut · Průzkum, hádanky, tajemství trpaslíků
+
+Gandalf se seznamuje s trpaslíkem Brunim, který poznává symboly na nalezené mapě.
+
+Patří staré soustavě obchodních a servisních chodeb vybudovaných trpaslíky před mnoha staletími.
+
+Většina z nich je dávno opuštěná.
+
+Bruni však věří, že jedna z chodeb stále vede pod horským hřebenem.
+
+Hlavní herní oblast: Staré štoly
+
+Hráč se vydává do podzemí, kde se výrazně změní atmosféra. Místo otevřené krajiny přicházejí úzké chodby, tma, ozvěna kapající vody a vzdálené skřetí hlasy.
+
+Hlavní úkoly:
+- Najít vstup do staré štoly.
+- Rozsvítit Gandalfovou holí tmavé chodby.
+- Vyřešit hádanku tří kamenných znaků.
+- Otevřít starou trpasličí bránu.
+- Překonat propadlou část tunelu.
+- Odhalit skrytou zásobovací trasu skřetů.
+- Získat jejich rozkazy.
+Hádanka tří kamenů
+
+Na kamenných deskách jsou vytesány symboly kladiva, hory a pochodně.
+
+Nedaleko stojí nápis:
+„Nejdříve vzniká dílo, potom cesta a nakonec světlo, které ji ukáže.“
+
+Hráč musí aktivovat symboly ve správném pořadí. Pokud se splete, mechanismus se pouze vrátí do původního stavu. Hádanka nesmí hráče trvale zablokovat.
+
+Zásadní dějové odhalení
+
+Gandalf zjistí, že Grakh chce propojit staré štoly s průchodem na druhé straně hor.
+
+Když budou z horských věží zapáleny tři signální ohně, skřetí skupiny dostanou znamení, že je cesta otevřená.
+
+Hráč navíc objeví část písemného rozkazu určeného někomu z osady.
+
+Na listině stojí:
+
+„Cesta musí zůstat bez stráží. Ostatní obdrží slíbenou odměnu.“
+
+Pod ním je otisk pečeti správce obchodních cest.
+
+Gandalf poznává Rovanovu pečeť.
+
+Bruni: „Všiml sis toho? Ti skřeti se nesnaží štoly jen obsadit. Opravují je.“
+
+Gandalf: „Někdo jim slíbil cestu. A někdo jiný jim uvěřil.“
+
+Tady končí první polovina příběhu.
+KAPITOLA IV – Cena ticha
+20 minut · Dramatický zvrat, rozhovory a morální rozhodnutí
+
+Tato kapitola je scénáristickým středobodem hry.
+
+Gandalf se vrací do osady a začíná vyšetřovat Rovena.
+
+Obyvatelé jsou nervózní, někteří obchodníci už odmítají opouštět domy a Edran chce okamžitě zatknout každého podezřelého.
+
+Hráč nejprve shromažďuje důkazy.
+
+Může vyslechnout svědky, prohlédnout Rovanovy záznamy a porovnat je s nalezenými rozkazy.
+
+Potom přichází rozhodující rozhovor.
+
+Filmová scéna: Rovanův dům
+
+Gandalf vstoupí do místnosti. Rovan stojí u stolu a nervózně skládá listiny.
+
+Gandalf: „Víš, proč jsem přišel.“
+
+Rovan: „Nemám tušení.“
+
+Gandalf položí na stůl pečeť nalezenou v podzemí.
+
+Rovan zbledne.
+
+Rovan: „Kde jsi to našel?“
+
+Gandalf: „V rukou těch, kteří zabíjejí tvé sousedy.“
+
+Rovan: „Já nikoho nezabil!“
+
+Gandalf: „Ale ukázal jsi jim cestu.“
+
+Následuje dlouhé ticho.
+
+Rovan: „Mají moji sestru.“
+
+Gandalf neodpovídá.
+
+Rovan: „Řekli mi, že pokud jim pomohu otevřít průsmyk, pustí ji. Jen jsem potřeboval získat trochu času.“
+
+Gandalf: „A kolik času získají ti, kteří kvůli tomu zemřou?“
+
+Rovan: „Ty to nechápeš. Je to jediná rodina, která mi zůstala.“
+
+Gandalf: „Strach je špatný rádce. Ale ještě horší je uvěřit, že nám nezbývá žádná jiná cesta.“
+
+Rovan se zhroutí na židli.
+
+Hráč nyní dostane první skutečně významné rozhodnutí.
+Rozhodnutí: Co udělá Gandalf s Rovanem?
+
+Pomohu mu zachránit sestru, ale bude muset říct pravdu.
+
+Předám jej Edranovi a požádám, aby s ním bylo spravedlivě naloženo.
+
+Zatím jeho jednání utajím, pokud mi pomůže zastavit skřety.
+
+MOŽNÝ NÁSLEDEK VOLBY
+Rovan začne spolupracovat, poskytne informace o zajatcích a získá šanci napravit svou zradu. Obyvatelé se pravdu později dozvědí.
+Interaktivní ukázka scénáristického větvení. Neovládá skutečnou hru.
+Tato rozhodnutí nemění celý hlavní příběh, ale ovlivňují rozhovory, způsoby řešení poslední kapitoly a podobu epilogu.
+
+Hráč nemůže zabránit dokončení hry špatnou volbou. Každá cesta musí nabídnout alternativní způsob, jak získat potřebné informace.
+
+Závěr kapitoly
+
+Edran přináší zprávu, že skřetí oddíly se dávají do pohybu.
+
+Pokud Grakh zapálí signální ohně, mohou být okolní osady napadeny ještě před úsvitem.
+
+Gandalf musí okamžitě jednat.
+KAPITOLA V – Oheň na hřebeni
+28 minut · Vrchol příběhu, infiltrace a finální souboj
+
+Tato kapitola tvoří herní vyvrcholení.
+
+Gandalf se vydává k horské pevnosti. V noci zuří bouře. Mezi skalami se pohybují skřetí hlídky a z hlavní věže stoupá kouř.
+
+Hráč má tři možné přístupové cesty.
+Cesta	Herní styl	Podmínka
+Hlavní stezka	Přímý boj a práce s krytem	Vždy dostupná
+Stará trpasličí štola	Průzkum, hádanky, méně nepřátel	Znalosti z třetí kapitoly
+Lesní římsa	Plížení a obcházení hlídek	Informace od Edrana nebo Rovena
+
+Fáze 1 – Proniknutí do pevnosti
+
+Gandalf se vyhne hlídkám nebo je porazí. Cestou nachází zásobovací sklady, skřetí zbraně a stopy po zajatcích.
+
+Fáze 2 – Signální ohně
+
+Hráč musí vyřadit dva hlavní signální mechanismy.
+
+Třetí je nepovinný, ale jeho zničení usnadní situaci v závěru.
+
+Každý mechanismus umožňuje více řešení: přímý zásah, sabotáž součástí nebo použití prostředí.
+
+Fáze 3 – Zajatci
+
+Gandalf objeví skupinu zajatých obchodníků a mezi nimi Nelu, Rovanovu sestru.
+
+Hráč je může osvobodit.
+
+Záchrana však vyvolá poplach, pokud předtím neodvede pozornost hlídek.
+
+Pokud jsou zajatci zachráněni, Gandalf získává důležitý důkaz proti Grakhovi: skřetí velitel nikdy neměl v úmyslu dodržet slib daný Rovanovi.
+
+Fáze 4 – Finální souboj
+
+Grakh čeká na vrcholu strážní pevnosti, nedaleko posledního signálního ohně.
+
+Grakh: „Šedý poutníku. Říkali mi, že přicházíš.“
+
+Gandalf: „Pak jsi měl čas odejít.“
+
+Grakh: „A přenechat ti hory? To bych nebyl hodný svého jména.“
+
+Gandalf: „Hory ti nepatří. Ani životy těch, které jsi zajal.“
+
+Grakh zaútočí.
+Boss Fight – Grakh, pán průsmyku
+Cílová délka: 4–6 minut
+Fáze 1 · 100–65 % HP	Útoky sekerou, kryt štítem, občasné výpady
+Fáze 2 · 65–30 % HP	Agresivnější útoky, vyvolání dvou existujících skřetích bojovníků
+Fáze 3 · 30–0 % HP	Grakh se snaží aktivovat poslední signální oheň; hráč ho musí zastavit
+
+Hráč využívá úskoky, magický štít, Glamdring i kouzla. Grakhovy útoky mají čitelné animace a existují krátká bezpečná okna pro protiútok.
+
+Finální filmová scéna
+
+Grakh padne na kolena. Ztrácí zbraň.
+
+Na okamžik se odmlčí a pak se pokusí doplazit k signálnímu mechanismu.
+
+Gandalf pozvedne hůl.
+
+Zazáří bílé světlo.
+
+Mechanismus se rozlomí a kovové součásti se zřítí do propasti. Grakh je poražen a poslední signál zůstává temný.
+
+V dálce se nad horami začíná objevovat světlo úsvitu.
+
+Gandalf tiše pronese:
+„Temnota nemusí zvítězit jen proto, že přišla dříve než světlo.“
+
+KAPITOLA VI – Úsvit nad údolím
+10 minut · Návrat, následky rozhodnutí a závěr
+
+Gandalf se vrací do osady Líska.
+
+Atmosféra se výrazně proměnila. Obyvatelé opravují domy, obchodníci znovu vyjíždějí na cesty a na strážní věži opět hoří světlo.
+
+Závěrečné rozhovory se odvíjejí od hráčových rozhodnutí.
+
+Možné zakončení
+Konec	Podmínky	Výsledek
+Světlo nad údolím	Zachránění zajatci, zastavené signály, vyřešená Rovanova vina	Osada zůstává jednotná a Rovan dostává šanci napravit škody
+Drahé vítězství	Signály zastaveny, ale část zajatců zůstala v rukou skřetů	Údolí je zachráněno, ale vítězství provází smutek a nejistota
+Pravda ve stínu	Grakh poražen, ale Rovanova úloha nebyla veřejně vysvětlena	Vesnice je bezpečná, avšak mezi lidmi přetrvává nedůvěra
+
+Všechny tři konce zachovávají základní fakt, že Gandalf zmařil Grakhův plán.
+
+Poslední scéna
+
+Edran doprovází Gandalfa za hranice osady.
+
+Edran: „Zachránil jsi nás. Přál bych si, abys mohl zůstat.“
+
+Gandalf: „Má cesta pokračuje. A tvoje práce zde teprve začíná.“
+
+Edran: „Myslíš, že se skřeti vrátí?“
+
+Gandalf se zadívá směrem k horám.
+
+Gandalf: „Obávám se, že ve světě přibývá míst, kde budou brzy potřebovat dobré strážce.“
+
+Rozloučí se a odchází.
+
+V závěrečné scéně vidíme, jak Gandalf píše zprávu určenou Elrondovi. Varuje jej, že nepřátelé na severu začínají postupovat koordinovaně.
+
+Hra končí pohledem na Gandalfa putujícího krajinou.
+
+Na obrazovce se objeví:
+
+GANDALF: STÍNY SEVERU – KONEC
+
+6. Vedlejší příběhy a úkoly
+Vedlejší úkoly nebudou pouze zdrojem zkušeností. Každý musí obsahovat vlastní malý příběh, rozhodnutí a hmatatelný důsledek pro hlavní děj.
+Vedlejší příběh	Délka	Odměna a návaznost
+Léčitelčina poslední naděje	14 min	Léčivé předměty, pomoc zraněným
+Odkaz kamenného rodu	16 min	Trpasličí znalosti a alternativní cesta
+Píseň, kterou les zapomněl	15 min	Posílení morálky osady a nový hudební motiv
+Ztracené zásoby	15 min	Vybavení pro výpravu a ochranu vesnice
+Celkem	60 min	
+
+Vedlejší příběh I – Léčitelčina poslední naděje
+Zpřístupnění: Po kapitole I
+
+Mira pečuje o zraněného Edrana. Potřebuje však léčivé rostliny, které rostou pouze v odlehlé části lesa.
+
+Gandalf se vydá do oblasti, kde se objevují skřetí hlídky.
+
+Hráč musí rozpoznat správné rostliny podle popisu v herbáři, najít opuštěnou léčitelovu brašnu a rozhodnout, jak se vypořádá s nepřáteli.
+
+Na místě objeví také starý hrob. Patří předchozímu vesnickému léčiteli, který kdysi pečoval o pocestné.
+
+Mira: „On pomáhal každému. Dokonce i těm, kteří mu neměli čím zaplatit.“
+
+Gandalf: „Pak po sobě zanechal větší bohatství než mnozí králové.“
+
+Odměna: Recept na léčivý obklad, dvě dávky bylin a zlepšená dostupnost léčení v osadě.
+
+Dopad na příběh: Mira dokáže během závěrečných událostí ošetřit více zraněných.
+Vedlejší příběh II – Odkaz kamenného rodu
+Zpřístupnění: Po kapitole II
+
+Bruni žádá Gandalfa, aby mu pomohl najít ztracené záznamy jeho předků.
+
+Je přesvědčený, že právě jeho rod kdysi spravoval horské průchody.
+
+Hráč prozkoumá tři staré kamenné značky a následně otevře menší zapomenutou komoru.
+
+Uvnitř nenajde zlatý poklad, ale nástroje, mapy a jména trpaslíků, kteří zde pracovali.
+
+Bruni: „Čekal jsem poklad.“
+
+Gandalf: „A našel jsi jej.“
+
+Bruni: „Jen staré knihy a kusy kamene.“
+
+Gandalf: „Paměť národa bývá vzácnější než zlato.“
+
+Odměna: Trpasličí klín, přesnější mapa horských chodeb a možnost otevřít vedlejší vstup do Grakhovy pevnosti.
+Vedlejší příběh III – Píseň, kterou les zapomněl
+Zpřístupnění: Po kapitole II
+
+Stará obyvatelka Lísky vzpomíná na píseň, kterou její rodina zpívala poutníkům pro štěstí.
+
+Její text se však časem ztratil.
+
+Gandalf postupně najde tři části příběhu ukryté ve starých dopisech a zápisech.
+
+Při průzkumu hráč objeví, že píseň není o slavných králích, ale o obyčejných lidech, kteří se navzdory strachu vydali pomoci svým sousedům.
+
+Po dokončení se v osadě ozve původní jemný instrumentální motiv, který se později vrací i v závěrečné hudbě.
+
+Odměna: Trvalé malé zvýšení maximálního soustředění a změna hudby bezpečné oblasti.
+
+Dopad na příběh: Obyvatelé získají odvahu zůstat a spolupracovat při obraně vesnice.
+Vedlejší příběh IV – Ztracené zásoby
+Zpřístupnění: Po kapitole III
+
+Do osady se nevrátil zásobovací vůz převážející jídlo a výstroj.
+
+Hráč musí vypátrat, co se stalo, a přivést zásoby zpět.
+
+Zjistí, že vůz byl ukryt ve starém lomu a skřeti ho chtějí odvézt do pevnosti.
+
+Gandalf může nepřátele porazit, odlákáním je dostat pryč nebo najít cestu k vozu přes opuštěný tunel.
+
+Odměna: Další spotřební předměty, zásoby pro osadu a možnost doplnit vybavení před závěrečnou výpravou.
+
+Dopad na příběh: Obyvatelé budou lépe připraveni na případný útok.
+
+7. RPG systém Gandalfa
+Teď přichází herní část, kterou bych nepodcenil.
+
+Gandalf nesmí působit jako obyčejný čaroděj na první úrovni. Již při začátku hry je zkušený Maia žijící ve Středozemi v podobě Istari. Zároveň ale není neporazitelný.
+
+Jeho rozvoj by proto měl být zaměřený na zdokonalování hráčova ovládání schopností, nikoliv na získávání nesmyslně silných kouzel.
+Základní statistiky
+Gandalf Šedý
+Výchozí stav
+
+Zdraví
+
+120
+
+
+Soustředění
+
+100
+
+
+Výdrž
+
+100
+
+
+
+Všechny hodnoty jsou návrhové a bude nutné je vybalancovat testováním.
+
+Základní atributy
+Moudrost
+
+9/10
+
+
+
+Rozpoznávání souvislostí, skryté dialogové možnosti
+Vůle
+
+8/10
+
+
+
+Odolnost vůči přerušení kouzel, práce se soustředěním
+Postřeh
+
+7/10
+
+
+
+Rozpoznávání stop a nepřátelských útoků
+Šerm
+
+6/10
+
+
+
+Účinnost základních útoků Glamdringem
+Odolnost
+
+7/10
+
+
+
+Schopnost vydržet fyzické poškození
+
+Atributy by v krátké hře zůstaly převážně pevné. Gandalf by si místo zvyšování základních čísel odemykal konkrétní specializace.
+
+Hodnoty by měly mít skutečný význam v herní logice. Například Moudrost zpřístupní podrobnější rozbor nalezených důkazů, Postřeh zvýrazní obtížně viditelné stopy a Vůle sníží pravděpodobnost přerušení kouzlení po zásahu.
+Regenerace a bojové zdroje
+Statistika	Fungování
+Zdraví	Doplňuje se léčením a odpočinkem na bezpečných místech
+Soustředění	Obnovuje se pomalu v boji a rychleji mimo boj
+Výdrž	Spotřebovává se na úskoky, blokování a sprint
+Vyvedení z rovnováhy	Skrytý ukazatel nepřítele, který se plní silnými zásahy
+
+Důležité: Soustředění musí být omezené, aby hráč nemohl donekonečna spamovat nejsilnější kouzla. Současně ale nesmí být tak vzácné, aby Gandalf bojoval skoro výhradně mečem.
+
+8. Gandalfovy aktivní schopnosti
+Zachoval bych čtyři kouzla navržená pro dosavadní hru a doplnil jejich konkrétní pravidla. Navíc ponecháme základní světlo hole jako průzkumnou schopnost.
+Schopnost	Efekt	Cena	Cooldown
+Světlo hole	Osvětlení okolí, odhalení některých stop	5 při aktivaci	0 s
+Oslnivý záblesk	Omráčení blízkých skřetů na 3 s	30 soustředění	15 s
+Magický oheň	28 poškození, možnost zapálit vhodné objekty	25 soustředění	8 s
+Ochranný štít	Omezení příchozího poškození o 65 %	18 při aktivaci + průběžná spotřeba	12 s po ukončení
+Rázová vlna	20 plošného poškození a odhození nepřátel	45 soustředění	22 s
+
+Konkrétní efekty jsou herní interpretací Gandalfových schopností, nikoliv přesným přepisem Tolkienova pojetí magie.
+Boj Glamdringem a holí
+Kouzla doplníme klasickým soubojovým systémem.
+Útok	Poškození	Výhoda
+Rychlý útok mečem	18	Krátká animace, malá spotřeba výdrže
+Silný útok mečem	30	Vyšší šance vyvést nepřítele z rovnováhy
+Úder holí	10	Může přerušit útok protivníka
+Úskok	—	Krátká ochrana před dobře načasovaným zásahem
+Blokování	—	Snížení příchozího poškození za cenu výdrže
+
+Každý útok musí mít skutečnou zásahovou zónu a správně načasované animace. Nepřítel nesmí dostat poškození jen proto, že se nachází blízko Gandalfa.
+Strom schopností
+Tři specializace, devět vylepšení
+
+Moc Istari
+
+Moudrost poutníka
+
+Ochránce Středozemě
+
+
+Moc Istari
+Kouzla a soustředění
+1. Jasnější světlo
+   
+   Větší dosah světla hole a lepší odhalování stop.
+2. Oheň naděje
+   
+   Magický oheň způsobí o 20 % více poškození.
+3. Nezlomná vůle
+   
+   Soustředění se obnovuje o 25 % rychleji.
+
+Jak bude fungovat postup postavy?
+Místo běžných zkušenostních bodů bych zavedl Body poznání.
+
+Gandalf je získá za dokončení důležitých příběhových událostí, nalezení zapomenutých znalostí a pomoc obyvatelům.
+
+Hlavní kampaň poskytne čtyři Body poznání a vedlejší příběhy další čtyři. Každé vylepšení stojí jeden bod.
+
+Hráč si proto při prvním průchodu nemůže odemknout úplně všechno a má důvod zkoušet jiné kombinace při dalším hraní.
+
+Základní Gandalfovy schopnosti zůstávají dostupné od začátku. Rozvoj je pouze vylepšuje.
+
+9. Systém předmětů a inventáře
+Tady bych se inspiroval Zaklínačem 3 a Kingdom Come, ale v podstatně menším rozsahu.
+
+Nechci, aby ze skřetů padaly desítky náhodných legendárních mečů. Tolkienovu světu by to příliš neodpovídalo.
+
+Předměty by měly být především užitečné, uvěřitelné a propojené s příběhem.
+Základní inventář
+Inventář rozdělíme na vybavení, spotřební předměty, materiály a příběhové předměty.
+
+Gandalf ponese maximálně 12 běžných inventářových slotů. Klíčové příběhové předměty se do limitu nezapočítávají.
+Vybavení
+Předmět	Funkce
+Gandalfova hůl	Kouzlení, světlo a základní údery
+Glamdring	Meč pro souboje zblízka
+Šedý plášť	Ochrana a snížení nápadnosti v určitých situacích
+Poutnická brašna	Ukládání běžných předmětů
+Starý cestovní oděv	Základní fyzická ochrana
+
+Tyto předměty jsou pevnou součástí postavy. Hráč je nevyměňuje za náhodné vybavení.
+
+Místo toho může například opravit opotřebený plášť nebo upravit brašnu tak, aby měla jeden dodatečný slot.
+Spotřební předměty
+Předmět	Účinek	Získání
+Léčivý obklad	Obnoví 35 zdraví mimo souboj	Výroba, od Miry
+Bylinný odvar	Obnoví 30 soustředění	Výroba
+Cestovní chléb	Obnoví 25 výdrže	Obchodníci, zásoby
+Sušené ovoce	Zrychlí regeneraci výdrže na krátkou dobu	Osada
+Pochodeň	Osvětlení prostoru, možnost zapálení ohniště	Výroba, tábor
+Obvazy	Zastaví případné krvácení a umožní ošetření	Od Miry
+Zásobovací balíček	Doplní část spotřebních předmětů při odpočinku	Odměna za vedlejší úkol
+
+Počet léčivých obkladů nesených současně bych omezil na tři, aby se ze soubojů nestala otázka neomezeného léčení.
+Suroviny a materiály
+Materiál	Využití
+Léčivé byliny	Obklady a bylinné odvary
+Čistá voda	Příprava odvarů
+Plátno	Obvazy a pochodně
+Pryskyřice	Výroba pochodní
+Trpasličí kovový klín	Opravy starých mechanismů
+Dřevěné části	Opravy táborového vybavení
+
+Suroviny se nacházejí v logických místech. Byliny rostou v lese, plátno získáš ze zásob a kovové součástky ze starých staveb.
+Příběhové předměty
+Mapa zapomenutých průchodů
+
+Odemkne alternativní trasu do horské pevnosti.
+
+
+
+Grakhův rozkaz
+
+Důkaz, že skřeti plánují otevření průchodu.
+
+
+
+Rovanova pečeť
+
+Použije se v rozhodujícím rozhovoru ve čtvrté kapitole.
+
+
+
+Bruniho záznamy
+
+Obsahují znalosti o trpasličích mechanismech.
+
+
+
+Seznam zajatců
+
+Umožňuje identifikovat Nelu a ostatní unesené obchodníky.
+
+
+
+Výroba předmětů
+Výroba musí být jednoduchá. Pro naši přibližně tříhodinovou hru by rozsáhlý crafting systém přinesl více práce než užitku.
+
+Navrhuji pouze několik užitečných receptů.
+Recept	Suroviny	Výsledek
+Léčivý obklad	2× byliny, 1× plátno	1 léčivý obklad
+Bylinný odvar	2× byliny, 1× voda	1 odvar
+Pochodeň	1× dřevo, 1× plátno, 1× pryskyřice	1 pochodeň
+
+Výrobu umožní odpočinková místa a vhodná pracovní stanoviště.
+
+Žádné zbytečné několikastupňové recepty nebo sbírání desítek druhů surovin.
+
+10. Inteligence nepřátel
+Příběh bude fungovat pouze tehdy, pokud skřeti nebudou působit jako hloupé figurky.
+
+Pro první plnohodnotnou verzi hry bych navrhl čtyři nepřátelské archetypy.
+Nepřítel	Zdraví	Chování
+Skřetí průzkumník	45	Rychlý pohyb, zpozorování hráče, přivolání pomoci
+Skřetí bojovník	75	Boj zblízka, blokování, obcházení
+Skřetí lučištník	50	Udržování odstupu, střelba, hledání výhodné pozice
+Grakh	220	Třífázový souboj, přivolání posil, využití prostředí
+
+Grakhových 220 HP představuje počáteční návrh pro boss fight. Bude nutné ho otestovat proti poškození Gandalfových útoků a kouzel, aby souboj trval přibližně čtyři až šest minut bez umělého prodlužování.
+Chování AI
+Nepřátelé budou využívat stavový automat:
+PATROL
+   ↓
+SUSPICIOUS
+   ↓
+INVESTIGATE
+   ↓
+CHASE
+   ↓
+ATTACK
+   ↓
+RECOVER
+   ↓
+CHASE / RETREAT
+
+Jakýkoli aktivní stav
+   ↓
+DEAD (při 0 HP)
+
+
+Během boje více protivníků se skřeti nesmí všichni najednou tlačit přímo na Gandalfa.
+
+Dva mohou aktivně útočit, ostatní se budou snažit získat výhodnou pozici nebo počkat na příležitost. Lučištníci budou udržovat odstup.
+
+Po ztrátě výhledu na Gandalfa se nepřítel vydá k místu, kde ho naposledy viděl, místo aby znal jeho přesnou pozici.
+
+Tím bude souboj působit mnohem přirozeněji.
+
+11. Rozhodnutí a znovuhratelnost
+Přestože je hlavní postavou Gandalf, hráč musí mít určitý prostor rozhodovat, jak problémy řešit.
+
+Nemělo by však jít o možnost stát se zlým čarodějem, přidat se ke skřetům nebo měnit známou historii Středozemě.
+
+Gandalfovo jednání musí zůstat uvěřitelné jeho charakteru.
+
+Proto hráč dostane tři základní přístupy:
+- Moudrost a diplomacie: Získávání informací, přesvědčování, pomoc druhým, nenásilné řešení.
+- Průzkum a opatrnost: Plížení, využívání prostředí, hledání alternativních cest.
+- Přímý zásah: Souboje, magická obrana, rychlé zastavení nepřítele.
+Všechny přístupy budou použitelné a jejich volba se promítne do některých dialogů, odměn a epilogu.
+
+Například hráč, který dokončil vedlejší úkoly, bude mít lepší podporu obyvatel, výhodnější vybavení a více cest k finálnímu řešení.
+
+Hráč, který se soustředí pouze na hlavní příběh, musí být také schopný hru dokončit, ale některé situace pro něj budou náročnější.
+
+12. Hudba, zvuk a filmová atmosféra
+Původní hudba by měla propojovat celou hru.
+Situace	Hudba
+Úvodní putování	Jemná flétna, smyčce, harfa
+Osada Líska	Teplý, pokojný motiv
+Lesní průzkum	Tiché ambientní plochy a dřevěné dechové nástroje
+Staré štoly	Nízké smyčce, hluboké tóny, ozvěny
+Souboj	Rychlé smyčce, perkuse, dramatická rytmika
+Grakhův souboj	Temný orchestrální motiv
+Závěr	Návrat hlavního tématu v nadějnější podobě
+
+Hudba se bude dynamicky přepínat podle situace, ale přechody musí být plynulé.
+
+Ideální je vytvořit tři až čtyři hlavní původní hudební motivy s několika instrumentálními variantami. Jeden motiv se může vracet napříč hrou v různých podobách.
+
+Hudba má atmosférou připomínat epickou Tolkienovskou fantasy, ale nesmí kopírovat existující melodie z filmů.
+
+13. Technické zadání pro Google AI Studio
+Aby šel celý tento návrh opravdu implementovat do existující prohlížečové 3D hry, je potřeba příběhový obsah strukturovat.
+Quest systém
+Každý úkol bude mít:
+Vlastnost	Význam
+questId	Jedinečný identifikátor úkolu
+title	Název
+description	Popis v deníku
+objectives	Jednotlivé cíle
+currentObjective	Aktivní cíl
+requirements	Podmínky pro aktivaci
+rewards	Odměny
+status	Locked / Available / Active / Completed
+flags	Důležitá rozhodnutí nebo události
+
+Například rozhodnutí ve čtvrté kapitole musí být trvale zaznamenáno, aby ovlivnilo pátou a šestou kapitolu.
+
+Kromě stavů úkolů bude hra potřebovat jednoduché příběhové příznaky, jako rovanConfessed, nelaRescued, beaconsDisabled a villageSupplied.
+Další nutné systémy
+- Dialogový systém: Textové rozhovory s možností výběru odpovědí a větvením podle příběhových podmínek.
+- Inventář: Jednoduché ukládání, používání a výroba předmětů.
+- Statistiky: Zdraví, soustředění, výdrž, atributy a odemčené schopnosti.
+- Soubojový systém: Stavový automat, detekce zásahů, cooldowny, obrana a úskoky.
+- Enemy AI: Hlídky, detekce, pronásledování, souboje a skupinové chování.
+- Hudební systém: Dynamické přechody mezi průzkumem, nebezpečím a bojem.
+- Ukládání hry: Automatické checkpointy po dokončení důležitých etap a při odpočinku.
+- Herní deník: Přehled aktivních úkolů, získaných informací a objevených míst.
+Při implementaci nesmí dokončení úkolu záviset na jediném nepříteli nebo předmětu, který by mohl náhodně zmizet. Důležité příběhové události musí mít bezpečné alternativy a možnost opakování od checkpointu.
+
+14. Jak bych celý projekt skutečně vyvíjel
+Tady bych byl poměrně přísný na rozsah. V Google AI Studiu nedává smysl vygenerovat jedním obrovským promptem všechny dialogy, NPC, mechaniky a tři hodiny obsahu. Hrozí, že dostaneme velké množství nefunkčního kódu.
+
+Rozdělil bych realizaci do čtyř etap.
+1. První etapa – Herní jádro
+   
+   Dokončit Gandalfa, pohyb, kameru, kouzla, inventář, dialogy, souboje a AI nepřátel. Vše spolehlivě funguje v jedné oblasti.
+2. Druhá etapa – První tři kapitoly
+   
+   Vytvořit úvodní děj, vyšetřování karavany a staré štoly. Tato část by měla nabídnout přibližně 50 minut příběhu.
+3. Třetí etapa – Dokončení kampaně
+   
+   Přidat Rovanův příběh, horskou pevnost, Grakhův souboj, důsledky rozhodnutí a epilog.
+4. Čtvrtá etapa – Vedlejší příběhy a finální polish
+   
+   Dokončit čtyři vedlejší úkoly, vyvážit statistiky, upravit obtížnost, přidat hudbu, otestovat ukládání a odstranit chyby.
+Celkové hodnocení návrhu
+Hlavní děj	6 kapitol
+Vedlejší příběhy	4 úkoly
+Významné postavy	7
+Nepřátelské archetypy	4 včetně bosse
+Magické schopnosti	5
+Vylepšení ve stromu schopností	9
+Hlavní příběhová rozhodnutí	3–4
+Varianty epilogu	3
+Plánovaný kompletní průchod	~170 minut
+
+
+Nejsilnější stránkou tohoto konceptu je propojení scénáře s hratelností. Informace získané při vyšetřování mají význam pro následný postup, vedlejší úkoly skutečně pomáhají v hlavním příběhu a hráč může Gandalfa rozvíjet několika způsoby.
+
+Zatím jde o podrobný příběhový a systémový návrh, nikoliv hotový implementační scénář. Před samotným vývojem bych ještě dopracoval všechny jednotlivé dialogové větve, přesné podmínky questů, rozmístění nepřátel, načasování scén a konkrétní datové struktury.
+
+Pro naši současnou low poly hru bych jako další krok doporučil zpracovat první kapitolu do plně implementovatelného zadání pro Google AI Studio. Tím vytvoříme funkční vzor pro všech pět zbývajících kapitol a čtyři vedlejší příběhy.

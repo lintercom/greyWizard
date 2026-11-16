@@ -1,0 +1,8 @@
+{
+  "name": "Middle-earth: The Grey Wizard",
+  "description": "Playable 3D third-person action RPG set near the Misty Mountains where you play as Gandalf the Grey.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
